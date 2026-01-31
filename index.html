@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhaskar | CSE Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0d1117; /* GitHub Dark Dim */
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-header: #ffffff;
+            --accent: #58a6ff; /* GitHub Blue */
+            --border: #30363d;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        
+        /* Header */
+        header { text-align: center; padding: 60px 20px; border-bottom: 1px solid var(--border); }
+        h1 { color: var(--text-header); font-size: 2.5rem; margin-bottom: 10px; }
+        .subtitle { font-size: 1.2rem; color: #8b949e; }
+        
+        /* Sections */
+        section { margin: 40px 0; }
+        h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        
+        /* Projects Grid */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .card h3 { color: var(--text-header); margin-top: 0; }
+        .tech-stack { font-size: 0.85rem; color: #8b949e; margin-top: 10px; }
+        .tech-tag {
+            display: inline-block;
+            background: rgba(56, 139, 253, 0.15);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* Education & Skills */
+        .list-group { list-style: none; padding: 0; }
+        .list-group li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .list-group li::before { content: "▹"; color: var(--accent); position: absolute; left: 0; }
+
+        /* Contact/Footer */
+        .social-links { text-align: center; margin-top: 40px; }
+        .social-links a { color: var(--text-header); font-size: 1.5rem; margin: 0 15px; text-decoration: none; transition: color 0.3s; }
+        .social-links a:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bhaskar</h1>
+    <p class="subtitle">3rd Year CSE Student @ Graphic Era Hill University</p>
+    <p>Systems Programming | Data Structures | Python Developer</p>
+</header>
+
+<div class="container">
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a computer science engineering student with a deep interest in the low-level workings of systems and the logic behind efficient algorithms. 
+            My focus is on mastering <strong>Data Structures and Algorithms</strong> in C/C++ and building practical applications that solve real-world problems.
+            I also explore data analysis using Python libraries like Pandas and NumPy.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            
+            <div class="card">
+                <h3>Trip Expense Manager</h3>
+                <p>A desktop application to track expenses and minimize cash flow between friends. Features a <strong>custom Heap Data Structure</strong> implementation for optimized debt settlement.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">C</span>
+                    <span class="tech-tag">Raylib</span>
+                    <span class="tech-tag">SQLite</span>
+                    <span class="tech-tag">Algorithms</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Fitness Tracker App</h3>
+                <p>A cross-platform mobile application for tracking workouts and health metrics. Built with a focus on clean UI and persistent data storage.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">KivyMD</span>
+                    <span class="tech-tag">Mobile Dev</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>CLI Weather Tool</h3>
+                <p>A command-line weather fetcher. Connects to live APIs to parse and display real-time weather data using low-level HTTP requests.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">C</span>
+                    <span class="tech-tag">libcurl</span>
+                    <span class="tech-tag">cJSON</span>
+                    <span class="tech-tag">REST API</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <ul class="list-group">
+            <li><strong>Languages:</strong> C, C++, Python (Intermediate)</li>
+            <li><strong>Core Concepts:</strong> Data Structures (Heaps, Linked Lists, Trees), OOP, Computer Architecture</li>
+            <li><strong>Libraries & Tools:</strong> Pandas, NumPy, Matplotlib, KivyMD, Raylib, Git/GitHub</li>
+            <li><strong>Database:</strong> SQLite</li>
+        </ul>
+    </section>
+
+    <footer class="social-links">
+        <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
+        <p style="font-size: 0.8rem; color: #555; margin-top: 20px;">&copy; 2026 Bhaskar</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
