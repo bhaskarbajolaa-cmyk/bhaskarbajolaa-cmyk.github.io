@@ -6,15 +6,6 @@
     <title>Bhaskar | CSE Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .profile-img {
-            width: 150px;       /* Width of the image */
-            height: 150px;      /* Height of the image */
-            border-radius: 50%; /* Makes it circular */
-            object-fit: cover;  /* Ensures the image doesn't stretch/distort */
-            border: 3px solid var(--accent); /* Adds a blue border */
-            margin-bottom: 15px; /* Space between image and name */
-            box-shadow: 0 0 20px rgba(88, 166, 255, 0.2); /* Optional: Adds a soft glow */
-        }
         :root {
             --bg-color: #0d1117; /* GitHub Dark Dim */
             --card-bg: #161b22;
@@ -33,6 +24,17 @@
         }
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
         
+        /* Profile Image */
+        .profile-img {
+            width: 150px;       /* Width of the image */
+            height: 150px;      /* Height of the image */
+            border-radius: 50%; /* Makes it circular */
+            object-fit: cover;  /* Ensures the image doesn't stretch/distort */
+            border: 3px solid var(--accent); /* Adds a blue border */
+            margin-bottom: 15px; /* Space between image and name */
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.2); /* Optional: Adds a soft glow */
+        }
+
         /* Header */
         header { text-align: center; padding: 60px 20px; border-bottom: 1px solid var(--border); }
         h1 { color: var(--text-header); font-size: 2.5rem; margin-bottom: 10px; }
@@ -64,6 +66,24 @@
             margin-bottom: 5px;
         }
 
+        /* Button Style for PDFs */
+        .btn-download {
+            display: inline-block;
+            background-color: var(--card-bg);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            transition: all 0.2s ease;
+        }
+        .btn-download:hover {
+            background-color: var(--accent);
+            color: var(--bg-color);
+        }
+
         /* Education & Skills */
         .list-group { list-style: none; padding: 0; }
         .list-group li { margin-bottom: 10px; padding-left: 20px; position: relative; }
@@ -81,7 +101,7 @@
     <img src="profile.jpg" alt="Bhaskar" class="profile-img">
     
     <h1>Bhaskar</h1>
-    <p class="subtitle">2rd Year CSE Student @ Graphic Era Hill University</p>
+    <p class="subtitle">3rd Year CSE Student @ Graphic Era Hill University</p>
     <p>Problem Solver | Data Structures | Python Developer</p>
 </header>
 
@@ -135,6 +155,19 @@
         </div>
     </section>
 
+    <section id="assignments">
+        <h2>Academic Assignments</h2>
+        <div class="project-grid">
+            <div class="card">
+                <h3>Profiling Sheet</h3>
+                <p>A comprehensive profiling record detailing performance metrics and analysis.</p>
+                <a href="assignments/profilingsheet.pdf" target="_blank" class="btn-download">
+                    <i class="fas fa-file-pdf"></i> View PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section id="skills">
         <h2>Technical Skills</h2>
         <ul class="list-group">
@@ -148,7 +181,7 @@
     <footer class="social-links">
         <a href="https://github.com/bhaskarbajolaa-cmyk" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://linkedin.com/in/Bhaskar Bajola" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:your.bhaskarbajolaa@gmail.com.com"><i class="fas fa-envelope"></i></a>
+        <a href="mailto:bhaskarbajolaa@gmail.com"><i class="fas fa-envelope"></i></a>
         <p style="font-size: 0.8rem; color: #555; margin-top: 20px;">&copy; 2026 Bhaskar</p>
     </footer>
 
