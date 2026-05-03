@@ -59,9 +59,17 @@
 
         .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
 
+        /* Hero Section with PFP */
         .hero {
             padding: 120px 0 80px;
-            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
         }
 
         .hero h1 {
@@ -78,6 +86,15 @@
             margin-bottom: 2rem;
         }
 
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--glass-border);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
+        }
+
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
@@ -86,6 +103,44 @@
             border-radius: 16px;
             padding: 2.5rem;
             transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Tech Stack Section */
+        .tech-stack-section {
+            margin: 4rem 0 8rem;
+            text-align: center;
+        }
+
+        .tech-stack-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95rem;
+            color: #e5e5e5;
+            transition: all 0.3s ease;
+        }
+
+        .skill-pill:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--gradient-1);
+            color: #fff;
+            transform: translateY(-2px);
         }
 
         .philosophy-grid {
@@ -189,6 +244,8 @@
         }
 
         @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; }
+            .hero-image { width: 220px; height: 220px; }
             .hero h1 { font-size: 3rem; }
             .philosophy-grid, .journey-grid { grid-template-columns: 1fr; gap: 2rem; }
             .assignment-item { flex-direction: column; align-items: flex-start; gap: 1rem; }
@@ -205,8 +262,29 @@
 
         <!-- Hero -->
         <section class="hero">
-            <h1>Architecting <br><span class="text-gradient">Logical Systems.</span></h1>
-            <p>Computer Science Engineer specializing in low-level emulation, high-performance backends, and algorithmic optimization.</p>
+            <div class="hero-content">
+                <h1>Architecting <br><span class="text-gradient">Logical Systems.</span></h1>
+                <p>Computer Science Engineer specializing in low-level emulation, high-performance backends, and algorithmic optimization.</p>
+            </div>
+            <!-- Profile Picture added here -->
+            <img src="profile.jpg" alt="Bhaskar" class="hero-image">
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section class="tech-stack-section">
+            <h2>Technical Arsenal</h2>
+            <div class="skill-container">
+                <div class="skill-pill">C++</div>
+                <div class="skill-pill">Java</div>
+                <div class="skill-pill">JavaScript / Node.js</div>
+                <div class="skill-pill">Spring Boot</div>
+                <div class="skill-pill">React</div>
+                <div class="skill-pill">Express</div>
+                <div class="skill-pill">MongoDB</div>
+                <div class="skill-pill">n8n Automation</div>
+                <div class="skill-pill">Raylib</div>
+                <div class="skill-pill">Git / GitHub</div>
+            </div>
         </section>
 
         <!-- Engineering Philosophy -->
@@ -224,7 +302,7 @@
             </div>
         </section>
 
-        <!-- Projects - Linked to Your GitHub -->
+        <!-- Projects -->
         <section class="section-header">
             <h2>Technical Portfolio</h2>
             <a href="https://github.com/bhaskarbajolaa-cmyk" target="_blank" class="link-out" style="font-size: 1.1rem;">View full GitHub Profile →</a>
@@ -239,17 +317,16 @@
                     <span class="tag">Raylib</span>
                     <span class="tag">Systems</span>
                 </div>
-                <!-- Modify the end of the URL if your repo name differs slightly -->
                 <a href="https://github.com/bhaskarbajolaa-cmyk/chip8" target="_blank" class="link-out">View Repository →</a>
             </div>
 
             <div class="glass-panel">
                 <h3>Review Analysis Platform</h3>
-                <p>A full-stack monorepo integrating VADER sentiment analysis. Orchestrated via a Java Spring Boot backend and a dynamic React frontend.</p>
+                <p>A full-stack monorepo application. Orchestrated via a Java Spring Boot backend, a dynamic React frontend, and utilizing n8n for automated review processing and workflow tasks.</p>
                 <div class="tags">
                     <span class="tag">Java Spring Boot</span>
                     <span class="tag">React</span>
-                    <span class="tag">Sentiment Analysis</span>
+                    <span class="tag">n8n</span>
                 </div>
                 <a href="https://github.com/bhaskarbajolaa-cmyk/review-analysis" target="_blank" class="link-out">View Repository →</a>
             </div>
@@ -266,14 +343,35 @@
             </div>
 
             <div class="glass-panel">
-                <h3>Tomato Leaf ML Diagnostic</h3>
-                <p>An intelligent system developed to detect and diagnose botanical issues using advanced image processing and machine learning algorithms.</p>
+                <h3>Real-Time MERN Chat</h3>
+                <p>A high-concurrency full-stack messaging application featuring secure Google authentication and real-time socket communication.</p>
                 <div class="tags">
-                    <span class="tag">Machine Learning</span>
-                    <span class="tag">Image Processing</span>
-                    <span class="tag">Python</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">Express</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
                 </div>
-                <a href="https://github.com/bhaskarbajolaa-cmyk/tomato-leaf-detection" target="_blank" class="link-out">View Repository →</a>
+                <a href="https://github.com/bhaskarbajolaa-cmyk/mern-chat" target="_blank" class="link-out">View Repository →</a>
+            </div>
+
+            <div class="glass-panel">
+                <h3>Trip Expense Splitter</h3>
+                <p>A practical application designed to seamlessly track, manage, and divide shared expenses among groups during travel or events.</p>
+                <div class="tags">
+                    <span class="tag">Full-Stack</span>
+                    <span class="tag">State Management</span>
+                </div>
+                <a href="https://github.com/bhaskarbajolaa-cmyk/trip-expense-splitter" target="_blank" class="link-out">View Repository →</a>
+            </div>
+
+            <div class="glass-panel">
+                <h3>Fitness Tracking Application</h3>
+                <p>A comprehensive platform allowing users to log workouts, monitor routine progress, and manage their personal fitness goals effectively.</p>
+                <div class="tags">
+                    <span class="tag">Web App</span>
+                    <span class="tag">Database</span>
+                </div>
+                <a href="https://github.com/bhaskarbajolaa-cmyk/fitness-app" target="_blank" class="link-out">View Repository →</a>
             </div>
 
         </section>
@@ -302,7 +400,7 @@
                 </div>
             </div>
 
-            <!-- New Assignments Module -->
+            <!-- Assignments Module -->
             <div>
                 <h2 style="margin-bottom: 2rem;">Professional Coursework & Assignments</h2>
                 <div class="assignment-list">
@@ -331,7 +429,6 @@
                         <span class="link-out">View Slides →</span>
                     </a>
 
-                    <!-- Using # as the placeholder link as requested -->
                     <a href="#" class="assignment-item">
                         <div>
                             <h4 style="color: #fff;">Cover Letter</h4>
