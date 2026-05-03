@@ -3,199 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhaskar | CSE Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Portfolio | Digital Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0d1117; /* GitHub Dark Dim */
-            --card-bg: #161b22;
-            --text-main: #c9d1d9;
-            --text-header: #ffffff;
-            --accent: #58a6ff; /* GitHub Blue */
-            --border: #30363d;
+            --bg-color: #0d0d0d;
+            --accent-color: #ffffff;
+            --text-dim: #888888;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            font-family: 'Inter', sans-serif;
+            overflow-y: hidden; /* Prevent vertical scrolling */
+        }
+
+        /* The Horizontal Container */
+        .viewport {
+            display: flex;
+            width: 400vw; /* Total width based on 4 sections */
+            height: 100vh;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Hide scrollbar Firefox */
+        }
+
+        .viewport::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+
+        section {
+            width: 100vw;
+            height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 8%;
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* Typography & Layout */
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 1;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            max-width: 500px;
             line-height: 1.6;
         }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        
-        /* Profile Image */
-        .profile-img {
-            width: 150px;       /* Width of the image */
-            height: 150px;      /* Height of the image */
-            border-radius: 50%; /* Makes it circular */
-            object-fit: cover;  /* Ensures the image doesn't stretch/distort */
-            border: 3px solid var(--accent); /* Adds a blue border */
-            margin-bottom: 15px; /* Space between image and name */
-            box-shadow: 0 0 20px rgba(88, 166, 255, 0.2); /* Optional: Adds a soft glow */
-        }
 
-        /* Header */
-        header { text-align: center; padding: 60px 20px; border-bottom: 1px solid var(--border); }
-        h1 { color: var(--text-header); font-size: 2.5rem; margin-bottom: 10px; }
-        .subtitle { font-size: 1.2rem; color: #8b949e; }
-        
-        /* Sections */
-        section { margin: 40px 0; }
-        h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 10px; }
-        
-        /* Projects Grid */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 20px;
-            transition: transform 0.2s;
-        }
-        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
-        .card h3 { color: var(--text-header); margin-top: 0; }
-        .tech-stack { font-size: 0.85rem; color: #8b949e; margin-top: 10px; }
-        .tech-tag {
-            display: inline-block;
-            background: rgba(56, 139, 253, 0.15);
-            color: var(--accent);
-            padding: 2px 8px;
-            border-radius: 12px;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-
-        /* Button Style for PDFs */
-        .btn-download {
-            display: inline-block;
-            background-color: var(--card-bg);
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 8px 16px;
-            border-radius: 6px;
-            text-decoration: none;
+        .index-number {
+            font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
-            margin-top: 15px;
-            transition: all 0.2s ease;
-        }
-        .btn-download:hover {
-            background-color: var(--accent);
-            color: var(--bg-color);
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            color: var(--text-dim);
+            display: block;
         }
 
-        /* Education & Skills */
-        .list-group { list-style: none; padding: 0; }
-        .list-group li { margin-bottom: 10px; padding-left: 20px; position: relative; }
-        .list-group li::before { content: "▹"; color: var(--accent); position: absolute; left: 0; }
+        /* Assignment Links List */
+        .assignment-container {
+            margin-top: 3rem;
+            max-width: 700px;
+        }
 
-        /* Contact/Footer */
-        .social-links { text-align: center; margin-top: 40px; }
-        .social-links a { color: var(--text-header); font-size: 1.5rem; margin: 0 15px; text-decoration: none; transition: color 0.3s; }
-        .social-links a:hover { color: var(--accent); }
+        .assignment-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .assignment-link:hover {
+            padding-left: 20px;
+            color: var(--text-dim);
+        }
+
+        .link-title {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        .link-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        /* Navigation Hint */
+        .nav-hint {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+        }
+
     </style>
 </head>
 <body>
 
-<header>
-    <img src="profile.jpg" alt="Bhaskar" class="profile-img">
-    
-    <h1>Bhaskar</h1>
-    <p class="subtitle">2nd Year CSE Student @ Graphic Era Hill University</p>
-    <p>Problem Solver | Data Structures | Python Developer</p>
-</header>
+    <div class="nav-hint">Scroll Horizontally →</div>
 
-<div class="container">
-    
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I am a computer science engineering student with a deep interest in the low-level workings of systems and the logic behind efficient algorithms. 
-            My focus is on mastering <strong>Data Structures and Algorithms</strong> in C/C++ and building practical applications that solve real-world problems.
-            I also explore data analysis using Python libraries like Pandas and NumPy.
-        </p>
-    </section>
-
-    <section id="projects">
-        <h2>Featured Projects</h2>
-        <div class="project-grid">
-            
-            <div class="card">
-                <h3>Trip Expense Manager</h3>
-                <p>A desktop application to track expenses and minimize cash flow between friends. Features a <strong>custom Heap Data Structure</strong> implementation for optimized debt settlement.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">C</span>
-                    <span class="tech-tag">Raylib</span>
-                    <span class="tech-tag">SQLite</span>
-                    <span class="tech-tag">Algorithms</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Fitness Tracker App</h3>
-                <p>A cross-platform mobile application for tracking workouts and health metrics. Built with a focus on clean UI and persistent data storage.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">KivyMD</span>
-                    <span class="tech-tag">Mobile Dev</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>CLI Weather Tool</h3>
-                <p>A command-line weather fetcher. Connects to live APIs to parse and display real-time weather data using low-level HTTP requests.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">C</span>
-                    <span class="tech-tag">libcurl</span>
-                    <span class="tech-tag">cJSON</span>
-                    <span class="tech-tag">REST API</span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    
-    <section id="assignments">
-    <h2>Academic Assignments</h2>
-    <div class="project-grid">
+    <main class="viewport">
         
-        <div class="card">
-            <h3>Assignment-1</h3>
-            <p>Profiling Sheet.</p>
-            <a href="assignments/profilingsheet.pdf" target="_blank" class="btn-download">
-                <i class="fas fa-file-pdf"></i> View PDF
-            </a>
-        </div>
+        <!-- SECTION 01: HERO -->
+        <section id="home">
+            <span class="index-number">01 // INTRODUCTION</span>
+            <h1>The <br>Portfolio.</h1>
+            <p>A collection of technical systems, architectural explorations, and academic milestones.</p>
+        </section>
 
-        <div class="card">
-            <h3>Assignment-2</h3>
-            <p>Self Introduction Video.</p>
-            <a href="https://drive.google.com/file/d/1tGiYIJxcXtyFm_QVsP8TaSk9iRtHdwwu/view?usp=drive_link" target="_blank" class="btn-download">
-                <i class="fas fa-file-video"></i> View Video
-            </a>
-        </div>
+        <!-- SECTION 02: ACADEMIC ASSIGNMENTS -->
+        <section id="assignments">
+            <span class="index-number">02 // ACADEMIC LABS</span>
+            <h2>Assignments.</h2>
+            
+            <div class="assignment-container">
+                <a href="#" class="assignment-link">
+                    <span class="link-title">Low-Level System Design</span>
+                    <span class="link-tag">Lab 01</span>
+                </a>
+                <a href="#" class="assignment-link">
+                    <span class="link-title">Algorithm Complexity Analysis</span>
+                    <span class="link-tag">Lab 02</span>
+                </a>
+                <!-- NEW ASSIGNMENTS ADDED BELOW -->
+                <a href="#" class="assignment-link">
+                    <span class="link-title">Distributed Backend Systems</span>
+                    <span class="link-tag">New</span>
+                </a>
+                <a href="#" class="assignment-link">
+                    <span class="link-title">Full-Stack Integration Patterns</span>
+                    <span class="link-tag">New</span>
+                </a>
+            </div>
+        </section>
 
-    </div>
-</section>
+        <!-- SECTION 03: PROJECTS -->
+        <section id="projects">
+            <span class="index-number">03 // SELECTED WORKS</span>
+            <h2>Projects.</h2>
+            <p>From custom emulators to high-performance engines. Focused on logic, derivation, and efficiency.</p>
+            <!-- Add a simple grid or list here if needed -->
+        </section>
 
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <ul class="list-group">
-            <li><strong>Languages:</strong> C, C++, Python (Intermediate)</li>
-            <li><strong>Core Concepts:</strong> Data Structures (Heaps, Linked Lists, Trees), OOP</li>
-            <li><strong>Libraries & Tools:</strong> Pandas, NumPy, Matplotlib, KivyMD, Raylib, Git/GitHub</li>
-            <li><strong>Database:</strong> SQLite</li>
-        </ul>
-    </section>
+        <!-- SECTION 04: PERSPECTIVES (Wildcard Section) -->
+        <section id="perspectives">
+            <span class="index-number">04 // PERSPECTIVES</span>
+            <h2>Beyond Code.</h2>
+            <p>Exploring the intersections of global geopolitics, systematic problem solving, and the philosophy of persistence.</p>
+        </section>
 
-    <footer class="social-links">
-        <a href="https://github.com/bhaskarbajolaa-cmyk" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/Bhaskar Bajola" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:bhaskarbajolaa@gmail.com"><i class="fas fa-envelope"></i></a>
-        <p style="font-size: 0.8rem; color: #555; margin-top: 20px;">&copy; 2026 Bhaskar</p>
-    </footer>
-
-</div>
+    </main>
 
 </body>
 </html>
