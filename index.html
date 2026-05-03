@@ -59,7 +59,7 @@
 
         .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
 
-        /* Hero Section with PFP */
+        /* Hero Section with PFP and Socials */
         .hero {
             padding: 120px 0 80px;
             display: flex;
@@ -84,6 +84,33 @@
             color: var(--text-muted);
             max-width: 600px;
             margin-bottom: 2rem;
+        }
+
+        /* Social Buttons */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--gradient-1);
+            transform: translateY(-2px);
         }
 
         .hero-image {
@@ -243,8 +270,26 @@
             margin-top: 4rem;
         }
 
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gradient-1);
+        }
+
         @media (max-width: 768px) {
             .hero { flex-direction: column-reverse; text-align: center; }
+            .social-links { justify-content: center; }
             .hero-image { width: 220px; height: 220px; }
             .hero h1 { font-size: 3rem; }
             .philosophy-grid, .journey-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -265,8 +310,13 @@
             <div class="hero-content">
                 <h1>Architecting <br><span class="text-gradient">Logical Systems.</span></h1>
                 <p>Computer Science Engineer specializing in low-level emulation, high-performance backends, and algorithmic optimization.</p>
+                
+                <!-- Social Links Added Here -->
+                <div class="social-links">
+                    <a href="https://github.com/bhaskarbajolaa-cmyk" target="_blank" class="social-btn">GitHub</a>
+                    <a href="https://www.linkedin.com/in/bhaskar-bajola-796994335" target="_blank" class="social-btn">LinkedIn</a>
+                </div>
             </div>
-            <!-- Profile Picture added here -->
             <img src="profile.jpg" alt="Bhaskar" class="hero-image">
         </section>
 
@@ -305,7 +355,6 @@
         <!-- Projects -->
         <section class="section-header">
             <h2>Technical Portfolio</h2>
-            <a href="https://github.com/bhaskarbajolaa-cmyk" target="_blank" class="link-out" style="font-size: 1.1rem;">View full GitHub Profile →</a>
         </section>
         <section class="grid">
             
@@ -444,6 +493,10 @@
         <footer>
             <div class="logo" style="font-size: 1.2rem; margin-bottom: 1rem;">BHASKAR.</div>
             <p>Engineered with logic and purpose.</p>
+            <div class="footer-links">
+                <a href="https://github.com/bhaskarbajolaa-cmyk" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/bhaskar-bajola-796994335" target="_blank">LinkedIn</a>
+            </div>
         </footer>
     </div>
 
