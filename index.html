@@ -3,187 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Digital Experience</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <title>Bhaskar | Computer Science Portfolio</title>
+    <!-- Importing a clean, modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Premium Dark Theme Variables */
         :root {
-            --bg-color: #0d0d0d;
-            --accent-color: #ffffff;
-            --text-dim: #888888;
-            --border-color: rgba(255, 255, 255, 0.1);
-            --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --bg-base: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
         }
 
+        /* Base Resets & Typography */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--accent-color);
             font-family: 'Inter', sans-serif;
-            overflow-y: hidden; /* Prevent vertical scrolling */
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* The Horizontal Container */
-        .viewport {
-            display: flex;
-            width: 400vw; /* Total width based on 4 sections */
-            height: 100vh;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            scrollbar-width: none; /* Hide scrollbar Firefox */
+        /* Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .viewport::-webkit-scrollbar {
-            display: none; /* Hide scrollbar Chrome/Safari */
+        /* Hero Section */
+        header {
+            padding: 100px 0 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        .highlight {
+            color: var(--accent);
+        }
+
+        /* Section Styling */
         section {
-            width: 100vw;
-            height: 100vh;
-            scroll-snap-align: start;
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        /* CSS Grid for that "Expensive" Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Premium Card Styling */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding: 0 8%;
-            border-right: 1px solid var(--border-color);
         }
 
-        /* Typography & Layout */
-        h1, h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 8rem);
-            line-height: 1;
-            margin-bottom: 2rem;
-            font-style: italic;
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
 
-        p {
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            max-width: 500px;
-            line-height: 1.6;
-        }
-
-        .index-number {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 3px;
+        .card h3 {
+            font-size: 1.25rem;
             margin-bottom: 1rem;
-            color: var(--text-dim);
-            display: block;
-        }
-
-        /* Assignment Links List */
-        .assignment-container {
-            margin-top: 3rem;
-            max-width: 700px;
-        }
-
-        .assignment-link {
+            color: var(--text-main);
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border-color);
-            text-decoration: none;
-            color: var(--accent-color);
-            transition: var(--transition);
+            justify-content: space-between;
         }
 
-        .assignment-link:hover {
-            padding-left: 20px;
-            color: var(--text-dim);
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
-        .link-title {
-            font-size: 1.5rem;
-            font-weight: 300;
-        }
-
-        .link-tag {
-            font-size: 0.7rem;
+        .card-footer {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 1px solid var(--border-color);
-            padding: 4px 10px;
-            border-radius: 20px;
+            letter-spacing: 1px;
         }
 
-        /* Navigation Hint */
-        .nav-hint {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-dim);
+        /* Special styling to highlight the new assignments */
+        .new-badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
         }
 
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 
-    <div class="nav-hint">Scroll Horizontally →</div>
+    <div class="container">
+        <!-- Introduction -->
+        <header>
+            <h1>Bhaskar</h1>
+            <p class="subtitle">Computer Science Engineering at Graphic Era Hill University.<br>
+            Focusing on <span class="highlight">low-level systems</span>, <span class="highlight">high-performance backends</span>, and logic-driven algorithm design.</p>
+        </header>
 
-    <main class="viewport">
-        
-        <!-- SECTION 01: HERO -->
-        <section id="home">
-            <span class="index-number">01 // INTRODUCTION</span>
-            <h1>The <br>Portfolio.</h1>
-            <p>A collection of technical systems, architectural explorations, and academic milestones.</p>
-        </section>
-
-        <!-- SECTION 02: ACADEMIC ASSIGNMENTS -->
+        <!-- Academic Assignments Section -->
         <section id="assignments">
-            <span class="index-number">02 // ACADEMIC LABS</span>
-            <h2>Assignments.</h2>
-            
-            <div class="assignment-container">
-                <a href="#" class="assignment-link">
-                    <span class="link-title">Low-Level System Design</span>
-                    <span class="link-tag">Lab 01</span>
+            <h2>Academic Assignments</h2>
+            <div class="grid">
+                
+                <!-- Existing Assignment 1 -->
+                <a href="#LINK_TO_ASSIGNMENT_1" class="card" target="_blank">
+                    <h3>Data Structures & Algorithms</h3>
+                    <p>Logical derivations and implementations of core algorithmic concepts and data structures.</p>
+                    <div class="card-footer">View Assignment →</div>
                 </a>
-                <a href="#" class="assignment-link">
-                    <span class="link-title">Algorithm Complexity Analysis</span>
-                    <span class="link-tag">Lab 02</span>
+
+                <!-- Existing Assignment 2 -->
+                <a href="#LINK_TO_ASSIGNMENT_2" class="card" target="_blank">
+                    <h3>Computer Organization</h3>
+                    <p>Explorations into system architecture and digital logic fundamentals.</p>
+                    <div class="card-footer">View Assignment →</div>
                 </a>
-                <!-- NEW ASSIGNMENTS ADDED BELOW -->
-                <a href="#" class="assignment-link">
-                    <span class="link-title">Distributed Backend Systems</span>
-                    <span class="link-tag">New</span>
+
+                <!-- NEW Assignment 1 -->
+                <a href="#LINK_TO_NEW_ASSIGNMENT_1" class="card" target="_blank">
+                    <h3>Design & Analysis of Algorithms <span class="new-badge">New</span></h3>
+                    <p>Advanced coursework focusing on algorithm optimization and complexity analysis.</p>
+                    <div class="card-footer">View Assignment →</div>
                 </a>
-                <a href="#" class="assignment-link">
-                    <span class="link-title">Full-Stack Integration Patterns</span>
-                    <span class="link-tag">New</span>
+
+                <!-- NEW Assignment 2 -->
+                <a href="#LINK_TO_NEW_ASSIGNMENT_2" class="card" target="_blank">
+                    <h3>System Emulation Research <span class="new-badge">New</span></h3>
+                    <p>Research and assignments related to virtual machine architecture and low-level processing.</p>
+                    <div class="card-footer">View Assignment →</div>
                 </a>
+
             </div>
         </section>
 
-        <!-- SECTION 03: PROJECTS -->
+        <!-- Engineering Projects Section -->
         <section id="projects">
-            <span class="index-number">03 // SELECTED WORKS</span>
-            <h2>Projects.</h2>
-            <p>From custom emulators to high-performance engines. Focused on logic, derivation, and efficiency.</p>
-            <!-- Add a simple grid or list here if needed -->
+            <h2>Featured Architecture</h2>
+            <div class="grid">
+                
+                <a href="https://github.com/YOUR_GITHUB/chip8" class="card" target="_blank">
+                    <h3>CHIP-8 Virtual Machine</h3>
+                    <p>A custom emulator built from scratch utilizing the Raylib library for precise graphics rendering and input state management.</p>
+                    <div class="card-footer">C++ • Raylib</div>
+                </a>
+
+                <a href="https://github.com/YOUR_GITHUB/bookshelf" class="card" target="_blank">
+                    <h3>BookShelf Engine</h3>
+                    <p>An intelligent library management engine prioritizing robust database integration and DAA concepts for optimized sorting and retrieval.</p>
+                    <div class="card-footer">C++ • Database Design</div>
+                </a>
+
+                <a href="https://github.com/YOUR_GITHUB/review-analysis" class="card" target="_blank">
+                    <h3>Review Analysis Platform</h3>
+                    <p>A full-stack monorepo application implementing VADER sentiment analysis. Orchestrated via a Java Spring Boot backend and React frontend.</p>
+                    <div class="card-footer">Java • Spring Boot • React</div>
+                </a>
+
+            </div>
         </section>
 
-        <!-- SECTION 04: PERSPECTIVES (Wildcard Section) -->
-        <section id="perspectives">
-            <span class="index-number">04 // PERSPECTIVES</span>
-            <h2>Beyond Code.</h2>
-            <p>Exploring the intersections of global geopolitics, systematic problem solving, and the philosophy of persistence.</p>
-        </section>
-
-    </main>
+        <footer>
+            <p>Designed with purpose. Built by Bhaskar.</p>
+        </footer>
+    </div>
 
 </body>
 </html>
