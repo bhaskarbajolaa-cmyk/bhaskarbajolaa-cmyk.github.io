@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhaskar | Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050505;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-muted: #a3a3a3;
+            --gradient-1: #3b82f6;
+            --gradient-2: #8b5cf6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3 { font-weight: 600; }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .mono { font-family: 'Fira Code', monospace; font-size: 0.9rem; }
+
+        nav {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
+
+        /* Hero Section with PFP and Socials */
+        .hero {
+            padding: 120px 0 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        /* Social Buttons */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--gradient-1);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--glass-border);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Tech Stack Section */
+        .tech-stack-section {
+            margin: 4rem 0 8rem;
+            text-align: center;
+        }
+
+        .tech-stack-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95rem;
+            color: #e5e5e5;
+            transition: all 0.3s ease;
+        }
+
+        .skill-pill:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--gradient-1);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 4rem 0 8rem;
+            align-items: center;
+        }
+
+        .philosophy-text h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .philosophy-text p { color: var(--text-muted); margin-bottom: 1rem; font-size: 1.1rem; }
+        
+        .quote-box {
+            border-left: 4px solid var(--gradient-2);
+            padding-left: 1.5rem;
+            font-style: italic;
+            color: #d4d4d4;
+        }
+
+        .section-header { margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.5rem; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 8rem;
+        }
+
+        .glass-panel:hover {
+            transform: translateY(-8px);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .glass-panel h3 { margin-bottom: 1rem; font-size: 1.4rem; }
+        .glass-panel p { color: var(--text-muted); margin-bottom: 1.5rem; }
+        
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.05);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #d4d4d4;
+        }
+
+        .link-out {
+            color: var(--gradient-1);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            margin-bottom: 8rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--glass-border);
+        }
+        
+        .timeline-item h4 { font-size: 1.2rem; color: #fff; }
+        .timeline-item span { color: var(--gradient-1); font-size: 0.9rem; font-weight: 600; }
+        .timeline-item p { color: var(--text-muted); margin-top: 0.5rem; font-size: 0.95rem; }
+
+        .assignment-list { display: flex; flex-direction: column; gap: 1rem; }
+        .assignment-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.2s ease;
+        }
+        .assignment-item:hover { background: rgba(255,255,255,0.05); }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gradient-1);
+        }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; }
+            .social-links { justify-content: center; }
+            .hero-image { width: 220px; height: 220px; }
+            .hero h1 { font-size: 3rem; }
+            .philosophy-grid, .journey-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .assignment-item { flex-direction: column; align-items: flex-start; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">BHASKAR.</div>
+            <div class="mono">B.Tech CSE</div>
+        </nav>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Architecting <br><span class="text-gradient">Logical Systems.</span></h1>
+                <p>Computer Science Engineer specializing in low-level emulation, high-performance backends, and algorithmic optimization.</p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/bhaskarbajolaa-cmyk" target="_blank" class="social-btn">GitHub</a>
+                    <a href="https://www.linkedin.com/in/bhaskar-bajola-796994335" target="_blank" class="social-btn">LinkedIn</a>
+                </div>
+            </div>
+            <img src="profile.jpg" alt="Bhaskar" class="hero-image">
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section class="tech-stack-section">
+            <h2>Technical Arsenal</h2>
+            <div class="skill-container">
+                <div class="skill-pill">C++</div>
+                <div class="skill-pill">Java</div>
+                <div class="skill-pill">JavaScript / Node.js</div>
+                <div class="skill-pill">Spring Boot</div>
+                <div class="skill-pill">React</div>
+                <div class="skill-pill">SQL</div>
+                <div class="skill-pill">n8n Automation</div>
+                <div class="skill-pill">Raylib</div>
+                <div class="skill-pill">Git / GitHub</div>
+            </div>
+        </section>
+
+        <!-- Engineering Philosophy -->
+        <section class="philosophy-grid">
+            <div class="philosophy-text">
+                <h2>The Engineering Mindset</h2>
+                <p>I don't believe in memorizing syntax; I believe in logical derivation. If you understand the core architecture of a system or the math behind an algorithm, the code writes itself.</p>
+                <div class="quote-box">
+                    <p>"Building software is a continuous climb. Like Sisyphus pushing the boulder, the true purpose and joy are found in the relentless process of deconstructing and solving complex problems."</p>
+                </div>
+            </div>
+            <div class="glass-panel">
+                <h3>Beyond the Screen</h3>
+                <p>When I'm not compiling C++ or debugging a React state, I maintain my focus and discipline through cycling, and keep a sharp eye on global macro-trends through geopolitics.</p>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section-header">
+            <h2>Technical Portfolio</h2>
+        </section>
+        <section class="grid">
+            
+            <div class="glass-panel">
+                <h3>CHIP-8 Virtual Machine</h3>
+                <p>A custom emulator built from the ground up, utilizing the Raylib library for precise graphics rendering, CPU cycle emulation, and input state management.</p>
+                <div class="tags">
+                    <span class="tag">C++</span>
+                    <span class="tag">Raylib</span>
+                    <span class="tag">Systems</span>
+                </div>
+                <a href="https://github.com/bhaskarbajolaa-cmyk/chip8" target="_blank" class="link-out">View Repository →</a>
+            </div>
+
+            <div class="glass-panel">
+                <h3>Review Analysis Platform</h3>
+                <p>A full-stack monorepo application. Orchestrated via a Java Spring Boot backend, a dynamic React frontend, and utilizing n8n for automated review processing and workflow tasks.</p>
+                <div class="tags">
+                    <span class="tag">Java Spring Boot</span>
+                    <span class="tag">React</span>
+                    <span class="tag">n8n</span>
+                </div>
+                <a href="https://github.com/bhaskarbajolaa-cmyk/review-analysis" target="_blank" class="link-out">View Repository →</a>
+            </div>
+
+            <div class="glass-panel">
+                <h3>BookShelf Engine</h3>
+                <p>An intelligent library management engine prioritizing robust database integration and DAA concepts for optimized sorting and retrieval.</p>
+                <div class="tags">
+                    <span class="tag">C++</span>
+                    <span class="tag">Algorithms</span>
+                    <span class="tag">Database</span>
+                </div>
+                <a href="https://github.com/bhaskarbajolaa-cmyk/bookshelf" target="_blank" class="link-out">View Repository →</a>
+            </div>
+
+            <div class="glass-panel">
+                <h3>Trip Expense Splitter</h3>
+                <p>A practical application designed to seamlessly track, manage, and divide shared expenses among groups during travel or events.</p>
+                <div class="tags">
+                    <span class="tag">Full-Stack</span>
+                    <span class="tag">State Management</span>
+                </div>
+                <a href="https://github.com/bhaskarbajolaa-cmyk/trip-expense-splitter" target="_blank" class="link-out">View Repository →</a>
+            </div>
+
+            <div class="glass-panel">
+                <h3>Fitness Tracking Application</h3>
+                <p>A comprehensive platform allowing users to log workouts, monitor routine progress, and manage their personal fitness goals effectively.</p>
+                <div class="tags">
+                    <span class="tag">Web App</span>
+                    <span class="tag">Database</span>
+                </div>
+                <a href="https://github.com/bhaskarbajolaa-cmyk/fitness-app" target="_blank" class="link-out">View Repository →</a>
+            </div>
+
+        </section>
+
+        <!-- Academic Journey & Specific Assignments -->
+        <section class="journey-grid">
+            <div>
+                <h2 style="margin-bottom: 2rem;">Academic Journey</h2>
+                
+                <div class="timeline-item">
+                    <h4>Graphic Era Hill University</h4>
+                    <span>B.Tech in Computer Science Engineering</span>
+                    <p>Focusing on Data Structures, Computer Organization, and Design & Analysis of Algorithms.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Hack-a-holic Hackathon</h4>
+                    <span>Top 20 Placement</span>
+                    <p>Competed against top engineering talent in a high-pressure development environment.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>St. Kabeer Academy</h4>
+                    <span>10+2 Education</span>
+                    <p>Graduated with high distinction, achieving 94% and 90% in core academics, building a strong mathematical foundation.</p>
+                </div>
+            </div>
+
+            <!-- Assignments Module -->
+            <div>
+                <h2 style="margin-bottom: 2rem;">Professional Coursework & Assignments</h2>
+                <div class="assignment-list">
+                    
+                    <a href="https://drive.google.com/file/d/1dt-mCjsImfyFrOouvPtBPIcudEbRavuw/view?usp=drive_link" target="_blank" class="assignment-item">
+                        <div>
+                            <h4 style="color: #fff;">Profiling Sheet</h4>
+                            <span class="mono" style="color: var(--gradient-1);">Assignment 01</span>
+                        </div>
+                        <span class="link-out">View Document →</span>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/1tGiYIJxcXtyFm_QVsP8TaSk9iRtHdwwu/view?usp=sharing" target="_blank" class="assignment-item">
+                        <div>
+                            <h4 style="color: #fff;">Self Introduction</h4>
+                            <span class="mono" style="color: var(--gradient-1);">Assignment 02</span>
+                        </div>
+                        <span class="link-out">View Document →</span>
+                    </a>
+
+                    <a href="https://docs.google.com/presentation/d/1sPVHnAzv6tc9Gf62K6gxWiVvoaWAXFvo/edit?usp=sharing&ouid=102441972670165482689&rtpof=true&sd=true" target="_blank" class="assignment-item">
+                        <div>
+                            <h4 style="color: #fff;">Professional Presentation</h4>
+                            <span class="mono" style="color: var(--gradient-1);">Assignment 03</span>
+                        </div>
+                        <span class="link-out">View Slides →</span>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/1kU_f3rscPeFvxbDTEAbESWCOupCGd69I/view?usp=sharing" target="_blank" class="assignment-item">
+                        <div>
+                            <h4 style="color: #fff;">Cover Letter</h4>
+                            <span class="mono" style="color: var(--gradient-1);">Assignment 04</span>
+                        </div>
+                        <span class="link-out">View Document →</span>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="logo" style="font-size: 1.2rem; margin-bottom: 1rem;">BHASKAR.</div>
+            <p>Engineered with logic and purpose.</p>
+            <div class="footer-links">
+                <a href="https://github.com/bhaskarbajolaa-cmyk" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/bhaskar-bajola-796994335" target="_blank">LinkedIn</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
